@@ -57,7 +57,7 @@ def __createFace(points, index, window):
     pygame.draw.polygon(window, COLORS[index], coords)
 
 
-def render_faces(points, octahedron, window):
+def render_faces(points, figure, window):
     coords = copy.copy(points)
-    for index, face in enumerate(octahedron.get_faces()):
+    for index, face in enumerate(figure.get_faces()):
         __createFace((coords[face[0]], coords[face[1]], coords[face[2]]), index, window)

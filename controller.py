@@ -11,7 +11,7 @@ hide_faces_figure = True
 scale = 150
 
 
-def action(event, octahedron, coordinate, window):
+def action(event, figure, coordinate, window):
     global hide_faces_figure, show_skeleton, show_coordinate, show_coordinate_points_figure, angle_y, angle_x, angle_z, scale
 
     if event.type == pygame.QUIT:
@@ -43,13 +43,13 @@ def action(event, octahedron, coordinate, window):
 
     __mouse_action(event)
 
-    new_octahedron_points = rotate(octahedron.get_octahedron_points(), angle_x, angle_y, angle_z, window, scale=scale)
+    new_octahedron_points = rotate(figure.get_octahedron_points(), angle_x, angle_y, angle_z, window, scale=scale)
 
     if hide_faces_figure:
-        render_faces(new_octahedron_points, octahedron, window)
+        render_faces(new_octahedron_points, figure, window)
 
     if show_skeleton:
-        octahedron.draw(new_octahedron_points, window)
+        figure.draw(new_octahedron_points, window)
 
     if show_coordinate:
         new_coordinate_points = rotate(coordinate.get_coordinate_points(), angle_x, angle_y, angle_z, window,
